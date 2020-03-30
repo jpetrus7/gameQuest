@@ -1,4 +1,12 @@
 
+# KidsCanCode - Game Development with Pygame video series
+# Jumpy! (a platform game) - Part 2
+# Video link: https://www.youtube.com/watch?v=8LRI0RLKyt0
+# Player movement
+# © 2019 KidsCanCode LLC / All rights reserved.
+
+# Week of march 23 - Lore
+# Modularity, Github, import as, 
 # Sprite classes for platform game
 # © 2019 KidsCanCode LLC / All rights reserved.
 # mr cozort planted a landmine by importing Sprite directly...
@@ -8,8 +16,10 @@ from settings import *
 vec = pg.math.Vector2
 
 class Player(Sprite):
-    def __init__(self):
+    # include game parameter to pass game class as argument in main...
+    def __init__(self, game):
         Sprite.__init__(self)
+        self.game = game
         self.image = pg.Surface((30, 40))
         self.image.fill(YELLOW)
         self.rect = self.image.get_rect()
@@ -17,7 +27,14 @@ class Player(Sprite):
         self.pos = vec(WIDTH / 2, HEIGHT / 2)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
-
+    def myMethod(self):
+        pass
+    def jump(self):
+        self.rect.x += 1
+        hits = pg.sprite.spritecollide(self, self.game.platforms, False)
+        self.rect.x -= 1
+        if hits: 
+            self.vel.y = -20
     def update(self):
         self.acc = vec(0, 0.5)
         keys = pg.key.get_pressed()
@@ -29,6 +46,9 @@ class Player(Sprite):
             self.acc.y = -PLAYER_ACC
         if keys[pg.K_s]:
             self.acc.y = PLAYER_ACC
+        # ALERT - Mr. Cozort did this WAY differently than Mr. Bradfield...
+        if keys[pg.K_SPACE]:
+            self.jump()
 
         # apply friction
         self.acc.x += self.vel.x * PLAYER_FRICTION
