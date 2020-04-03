@@ -65,7 +65,7 @@ class Player(Sprite):
             self.pos.y = HEIGHT
         if self.pos.y > HEIGHT:
             self.pos.y = 0
-        
+            
 # super class    
         self.rect.midbottom = self.pos
 class Platform(Sprite):
