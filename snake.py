@@ -1,3 +1,6 @@
+# This file was created by Joshua Petrus
+# Source: https://www.edureka.co/blog/snake-game-with-pygame/
+
 import turtle
 import time
 import random
@@ -41,7 +44,7 @@ pen.color("white")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write("Score: 0  High Score: 0", align="center", font=("Courier", 24, "normal"))
+pen.write("Score: 0  High Score: 0", align="center", font=("Times New Roman", 24, "normal"))
 
 # Functions
 def go_up():
@@ -49,7 +52,7 @@ def go_up():
         head.direction = "up"
 
 def go_down():
-    if head.direction != "up":
+    if head.direction != "up":  
         head.direction = "down"
 
 def go_left():
@@ -108,7 +111,7 @@ while True:
         delay = 0.1
 
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal")) 
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Times New Rman", 24, "normal")) 
 
 
     # Check for a collision with the food
@@ -135,7 +138,7 @@ while True:
             high_score = score
         
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal")) 
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Times New Roman", 24, "normal")) 
 
     # Move the end segments first in reverse order
     for index in range(len(segments)-1, 0, -1):
@@ -173,7 +176,7 @@ while True:
         
             # Update the score display
             pen.clear()
-            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
+            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Times New Roman", 24, "normal"))
 
     time.sleep(delay)
 
