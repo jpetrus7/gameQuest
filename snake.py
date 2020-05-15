@@ -1,6 +1,7 @@
 # This file was created by Joshua Petrus
-# Source: https://www.edureka.co/blog/snake-game-with-pygame/
-
+# Source: https://gist.github.com/wynand1004/ec105fd2f457b10d971c09586ec44900
+# By @TokyoEdTech
+# I commmented it out trying to understand it
 import turtle
 import time
 import random
